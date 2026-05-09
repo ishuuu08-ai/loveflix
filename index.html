@@ -650,7 +650,11 @@ const song=document.getElementById("song");
 
 window.onload=()=>{
 
-tudum.play();
+const playPromise = tudum.play();
+
+if(playPromise !== undefined){
+
+playPromise.then(()=>{
 
 setTimeout(()=>{
 
@@ -663,6 +667,18 @@ document.body.style.overflow="auto";
 song.play();
 
 },3500);
+
+}).catch(()=>{
+
+intro.style.display="none";
+
+website.style.display="block";
+
+document.body.style.overflow="auto";
+
+});
+
+}
 
 };
 
