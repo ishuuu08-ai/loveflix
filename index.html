@@ -572,9 +572,9 @@ const song = document.getElementById("song");
 const intro = document.getElementById("intro");
 const website = document.getElementById("website");
 
-/* INTRO + MUSIC */
+window.onload = () => {
 
-window.onload = async () => {
+/* RESET INTRO */
 
 intro.style.display = "flex";
 
@@ -590,17 +590,21 @@ song.pause();
 tudum.currentTime = 0;
 song.currentTime = 0;
 
-try{
+/* PLAY TUDUM */
 
-await tudum.play();
+let tudumPlayed = tudum.play();
 
-}catch(error){
+/* IF AUTOPLAY FAILS */
 
+if(tudumPlayed !== undefined){
+
+tudumPlayed.catch(() => {
 console.log("Autoplay blocked");
+});
 
 }
 
-/* AFTER 3 SEC */
+/* SHOW WEBSITE AFTER 3 SEC */
 
 setTimeout(() => {
 
@@ -610,12 +614,16 @@ website.style.display = "block";
 
 document.body.style.overflow = "auto";
 
-song.play();
+/* PLAY MAIN SONG */
+
+song.play().catch(() => {
+console.log("Song autoplay blocked");
+});
 
 },3000);
 
 };
-
+  
 /* PLAY BUTTON */
 
 function openLove(){
