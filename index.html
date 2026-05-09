@@ -650,35 +650,35 @@ const song=document.getElementById("song");
 
 window.onload = () => {
 
-/* SHOW LOVEFLIX INTRO */
+/* SHOW INTRO */
 
 document.getElementById("intro").style.display = "flex";
 
-/* PLAY TUDUM SOUND FIRST */
+/* PLAY TUDUM */
 
 tudum.currentTime = 0;
 tudum.play();
 
-/* WHEN TUDUM ENDS */
+/* AFTER 3 SECONDS */
 
-tudum.onended = () => {
+setTimeout(() => {
 
-/* HIDE LOVEFLIX INTRO */
+/* HIDE INTRO */
 
 document.getElementById("intro").style.display = "none";
 
-/* SHOW MAIN WEBSITE */
+/* SHOW WEBSITE */
 
 document.getElementById("website").style.display = "block";
 
 document.body.style.overflow = "auto";
 
-/* NOW PLAY YOUR SONG */
+/* PLAY MAIN SONG */
 
 song.currentTime = 0;
 song.play();
 
-};
+}, 3000);
 
 };
 
