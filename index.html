@@ -648,29 +648,37 @@ const website=document.getElementById("website");
 const tudum=document.getElementById("tudum");
 const song=document.getElementById("song");
 
-window.onload=()=>{
+window.onload = () => {
 
-document.getElementById("intro").style.display="flex";
+/* SHOW LOVEFLIX INTRO */
 
-/* PLAY TUDUM FIRST */
+document.getElementById("intro").style.display = "flex";
 
+/* PLAY TUDUM SOUND FIRST */
+
+tudum.currentTime = 0;
 tudum.play();
 
-/* AFTER TUDUM ENDS */
+/* WHEN TUDUM ENDS */
 
-setTimeout(()=>{
+tudum.onended = () => {
 
-intro.style.display="none";
+/* HIDE LOVEFLIX INTRO */
 
-website.style.display="block";
+document.getElementById("intro").style.display = "none";
 
-document.body.style.overflow="auto";
+/* SHOW MAIN WEBSITE */
 
-/* NOW PLAY SONG */
+document.getElementById("website").style.display = "block";
 
+document.body.style.overflow = "auto";
+
+/* NOW PLAY YOUR SONG */
+
+song.currentTime = 0;
 song.play();
 
-},3500);
+};
 
 };
 
