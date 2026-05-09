@@ -650,16 +650,27 @@ const song=document.getElementById("song");
 
 window.onload = () => {
 
-/* SHOW INTRO */
+/* RESET EVERYTHING */
 
 document.getElementById("intro").style.display = "flex";
 
-/* PLAY TUDUM */
+document.getElementById("website").style.display = "none";
+
+document.body.style.overflow = "hidden";
+
+/* RESET AUDIO */
+
+tudum.pause();
+song.pause();
 
 tudum.currentTime = 0;
+song.currentTime = 0;
+
+/* PLAY TUDUM */
+
 tudum.play();
 
-/* AFTER 3 SECONDS */
+/* AFTER INTRO */
 
 setTimeout(() => {
 
@@ -675,13 +686,11 @@ document.body.style.overflow = "auto";
 
 /* PLAY MAIN SONG */
 
-song.currentTime = 0;
 song.play();
 
-}, 3000);
+},3000);
 
 };
-
 /* PLAY BUTTON */
 
 function openLove(){
