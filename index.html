@@ -649,12 +649,8 @@ const tudum=document.getElementById("tudum");
 const song=document.getElementById("song");
 
 window.onload=()=>{
-
-const playPromise = tudum.play();
-
-if(playPromise !== undefined){
-
-playPromise.then(()=>{
+  
+document.getElementById("intro").style.display="flex";
 
 setTimeout(()=>{
 
@@ -664,21 +660,11 @@ website.style.display="block";
 
 document.body.style.overflow="auto";
 
+tudum.play();
+
 song.play();
 
-},3500);
-
-}).catch(()=>{
-
-intro.style.display="none";
-
-website.style.display="block";
-
-document.body.style.overflow="auto";
-
-});
-
-}
+},3000);
 
 };
 
