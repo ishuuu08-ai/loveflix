@@ -649,8 +649,14 @@ const tudum=document.getElementById("tudum");
 const song=document.getElementById("song");
 
 window.onload=()=>{
-  
+
 document.getElementById("intro").style.display="flex";
+
+/* PLAY TUDUM FIRST */
+
+tudum.play();
+
+/* AFTER TUDUM ENDS */
 
 setTimeout(()=>{
 
@@ -660,11 +666,11 @@ website.style.display="block";
 
 document.body.style.overflow="auto";
 
-tudum.play();
+/* NOW PLAY SONG */
 
 song.play();
 
-},3000);
+},3500);
 
 };
 
